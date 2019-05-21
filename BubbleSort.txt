@@ -1,0 +1,52 @@
+public class NewBubble {
+
+    static int[] array = {5, 1, 6, 18, 4, 0, 15, 6, -9, 88};
+    static int temp = 0;
+
+    public static void main(String[] args) {
+
+        System.out.println("Array Before bubble sort:");
+        printArray(array);
+
+        bubbleSort(array);
+        System.out.println("Array After bubble sort:");
+        printArray(array);
+
+        reverseBubbleSort(array);
+        System.out.println("Array After reverse bubble sort:");
+        printArray(array);
+    }
+
+    public static void bubbleSort(int[] array) {
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 1; j < array.length - i; j++) {
+                if (array[j - 1] > array[j]) {
+                    temp = array[j - 1];
+                    array[j - 1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+    }
+
+    public static void reverseBubbleSort(int[] array) {
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 1; j < array.length - i; j++) {
+                if (array[j - 1] < array[j]) {
+                    temp = array[j - 1];
+                    array[j - 1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+    }
+
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + "| ");
+        }
+        System.out.println("\n");
+    }
+}
